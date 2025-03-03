@@ -1,0 +1,9 @@
+name: GuardX
+version: '1.0'
+main: GuardX.GuardX
+api-version: '1.21'
+prefix: GuardX
+load: STARTUP
+authors: [ BuffyOfficial ]
+description: GuardX Primary Plugin
+website: gamingsmp.net

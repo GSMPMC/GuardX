@@ -1,0 +1,9 @@
+name: GuardX
+main: main.java.GuardX
+version: 1.0
+description: A GuardX Plugin for GSMP.
+load: STARTUP
+author: BuffyOffcial
+website: gamingsmp.net
+prefix: GuardX
+api-version: 1.21
