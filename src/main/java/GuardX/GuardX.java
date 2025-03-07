@@ -1,5 +1,7 @@
 package GuardX;
 
+import GuardX.listener.ShearSheep;
+import GuardX.listener.XPBottleBreak;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -16,6 +18,8 @@ public final class GuardX extends JavaPlugin implements Listener {
     public void onEnable() {
         getLogger().info("GuardX Online without any issues");
         getServer().getPluginManager().registerEvents(this, this);
+        getServer().getPluginManager().registerEvents(new XPBottleBreak(), this);
+        getServer().getPluginManager().registerEvents(new ShearSheep(), this);
     }
 
     @EventHandler
