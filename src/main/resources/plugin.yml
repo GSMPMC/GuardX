@@ -11,3 +11,6 @@ commands:
   die:
     description: Easy way to kill yourself.
     usage: /<command>
+  god:
+    description: Easy way to God yourself.
+    usage: /<command>

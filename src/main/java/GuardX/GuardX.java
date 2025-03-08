@@ -1,5 +1,6 @@
 package GuardX;
 
+import GuardX.EventListener.Commands.godCMD;
 import GuardX.EventListener.ShearSheep;
 import GuardX.EventListener.XPBottleBreak;
 import org.bukkit.ChatColor;
@@ -18,10 +19,14 @@ public final class GuardX extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        //Plugin Logger
         getLogger().info("GuardX Online without any issues");
+        //Plugin Events
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new XPBottleBreak(), this);
         getServer().getPluginManager().registerEvents(new ShearSheep(), this);
+        //Plugin Commands
+        getCommand("god").setExecutor(new godCMD());
     }
 
     @Override
