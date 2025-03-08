@@ -1,4 +1,4 @@
-package GuardX.listener;
+package GuardX.EventListener;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;

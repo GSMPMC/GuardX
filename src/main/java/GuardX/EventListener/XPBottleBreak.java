@@ -1,4 +1,4 @@
-package GuardX.listener;
+package GuardX.EventListener;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

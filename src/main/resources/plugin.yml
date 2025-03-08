@@ -7,3 +7,7 @@ load: STARTUP
 authors: [ BuffyOfficial ]
 description: GuardX Primary Plugin
 website: gamingsmp.net
+commands:
+  die:
+    description: Easy way to kill yourself.
+    usage: /<command>

@@ -7,3 +7,7 @@ author: BuffyOffcial
 website: gamingsmp.net
 prefix: GuardX
 api-version: 1.21
+commands:
+  die:
+    description: Easy way to kill yourself.
+    usage: /<command>

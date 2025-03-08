@@ -1,16 +1,18 @@
 package GuardX;
 
-import GuardX.listener.ShearSheep;
-import GuardX.listener.XPBottleBreak;
+import GuardX.EventListener.ShearSheep;
+import GuardX.EventListener.XPBottleBreak;
 import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
+import org.bukkit.command.BlockCommandSender;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.player.PlayerBedLeaveEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 public final class GuardX extends JavaPlugin implements Listener {
 
@@ -22,23 +24,29 @@ public final class GuardX extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ShearSheep(), this);
     }
 
+    @Override
+    public boolean onCommand(@NotNull CommandSender sender, Command command, @NotNull String label, String @NotNull [] args) {
+
+        if (command.getName().equalsIgnoreCase("die")){
+
+            if (sender instanceof Player p){
+                p.setHealth(0);
+                p.sendMessage(ChatColor.RED + "You killed yourself lol.");
+            }else if (sender instanceof ConsoleCommandSender){
+                getLogger().warning("Console Blocked! This command can only be ran by a player!");
+            }else if (sender instanceof BlockCommandSender){
+                getLogger().warning("CMDBlock Blocked! This command can only be ran by a player!");
+            }
+
+        }
+
+        return true;
+    }
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         event.setJoinMessage(ChatColor.GOLD + "Welcome " + player.getName() + " to Gaming SMP!");
-    }
-
-    @EventHandler
-    public void onBedLeave(PlayerBedLeaveEvent event) {
-        Player player = event.getPlayer();
-        player.sendMessage(ChatColor.DARK_GRAY + "[" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "GuardX System" + ChatColor.DARK_GRAY + "]" + " " + ChatColor.DARK_RED + ">" + " " + ChatColor.YELLOW + "You left your bed here!");
-        player.setFlying(true);
-        player.setGameMode(GameMode.SURVIVAL);
-    }
-
-    @EventHandler
-    public void onBreakBlock(BlockBreakEvent event) {
-        // No code yet, will be added soon.
     }
 
     @Override
