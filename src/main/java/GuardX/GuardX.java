@@ -1,5 +1,6 @@
 package GuardX;
 
+import GuardX.EventListener.Commands.feedCMD;
 import GuardX.EventListener.Commands.godCMD;
 import GuardX.EventListener.ShearSheep;
 import GuardX.EventListener.XPBottleBreak;
@@ -27,6 +28,7 @@ public final class GuardX extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ShearSheep(), this);
         //Plugin Commands
         getCommand("god").setExecutor(new godCMD());
+        getCommand("feed").setExecutor(new feedCMD());
     }
 
     @Override
