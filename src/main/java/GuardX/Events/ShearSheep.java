@@ -1,4 +1,4 @@
-package GuardX.EventListener;
+package GuardX.Events;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -12,14 +12,14 @@ public class ShearSheep implements Listener {
     @EventHandler
     public void onSheepShear(PlayerShearEntityEvent e) {
 
-        Player player = e.getPlayer();
+        Player p = e.getPlayer();
         Entity entity = e.getEntity();
 
         if (entity.getType() == EntityType.SHEEP){
-            player.sendMessage("This is a sheep, you can't shear it. Poor sheep :(");
+            p.sendMessage("This is a sheep, you can't shear it. Poor sheep :(");
             e.setCancelled(true);
         }else{
-            player.sendMessage("This is not a sheep.");
+            p.sendMessage("This is not a sheep.");
         }
     }
 }

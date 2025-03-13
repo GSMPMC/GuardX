@@ -1,59 +1,54 @@
 package GuardX;
 
-import GuardX.EventListener.Commands.feedCMD;
-import GuardX.EventListener.Commands.godCMD;
-import GuardX.EventListener.ShearSheep;
-import GuardX.EventListener.XPBottleBreak;
-import org.bukkit.ChatColor;
-import org.bukkit.command.BlockCommandSender;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
+import GuardX.Commands.Gamemode.gma;
+import GuardX.Commands.Gamemode.gmc;
+import GuardX.Commands.Gamemode.gms;
+import GuardX.Commands.Gamemode.gmsp;
+import GuardX.Commands.Player.dieCMD;
+import GuardX.Commands.Player.feedCMD;
+import GuardX.Commands.Player.godCMD;
+import GuardX.Commands.Player.healCMD;
+import GuardX.Commands.Server.World.dayCMD;
+import GuardX.Commands.Server.World.mnightCMD;
+import GuardX.Commands.Server.World.nightCMD;
+import GuardX.Commands.Server.World.noonCMD;
+import GuardX.Events.BreakBlock;
+import GuardX.Events.ShearSheep;
+import GuardX.Events.XPBottleBreak;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public final class GuardX extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        //Plugin Logger
+        //Logger
         getLogger().info("GuardX Online without any issues");
-        //Plugin Events
-        getServer().getPluginManager().registerEvents(this, this);
+        getLogger().warning("This plugin is not recommended to be used in a functioning server/public server as it may cause unexpected issues.");
+        //Events
         getServer().getPluginManager().registerEvents(new XPBottleBreak(), this);
         getServer().getPluginManager().registerEvents(new ShearSheep(), this);
-        //Plugin Commands
-        getCommand("god").setExecutor(new godCMD());
-        getCommand("feed").setExecutor(new feedCMD());
-    }
-
-    @Override
-    public boolean onCommand(@NotNull CommandSender sender, Command command, @NotNull String label, String @NotNull [] args) {
-
-        if (command.getName().equalsIgnoreCase("die")){
-
-            if (sender instanceof Player p){
-                p.setHealth(0);
-                p.sendMessage(ChatColor.RED + "You killed yourself lol.");
-            }else if (sender instanceof ConsoleCommandSender){
-                getLogger().warning("Console Blocked! This command can only be ran by a player!");
-            }else if (sender instanceof BlockCommandSender){
-                getLogger().warning("CMDBlock Blocked! This command can only be ran by a player!");
-            }
-
-        }
-
-        return true;
-    }
-
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-        event.setJoinMessage(ChatColor.GOLD + "Welcome " + player.getName() + " to Gaming SMP!");
+        getServer().getPluginManager().registerEvents(new BreakBlock(), this);
+//Commands
+        //Gamemode
+        Objects.requireNonNull(getCommand("gmc")).setExecutor(new gmc());
+        Objects.requireNonNull(getCommand("gma")).setExecutor(new gma());
+        Objects.requireNonNull(getCommand("gms")).setExecutor(new gms());
+        Objects.requireNonNull(getCommand("gmsp")).setExecutor(new gmsp());
+    //Player
+        //Health
+        Objects.requireNonNull(getCommand("god")).setExecutor(new godCMD());
+        Objects.requireNonNull(getCommand("feed")).setExecutor(new feedCMD());
+        Objects.requireNonNull(getCommand("heal")).setExecutor(new healCMD());
+        Objects.requireNonNull(getCommand("die")).setExecutor(new dieCMD());
+    //World
+        //Time
+        Objects.requireNonNull(getCommand("day")).setExecutor(new dayCMD());
+        Objects.requireNonNull(getCommand("noon")).setExecutor(new noonCMD());
+        Objects.requireNonNull(getCommand("night")).setExecutor(new nightCMD());
+        Objects.requireNonNull(getCommand("mnight")).setExecutor(new mnightCMD());
     }
 
     @Override

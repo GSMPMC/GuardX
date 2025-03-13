@@ -1,4 +1,4 @@
-package GuardX.EventListener;
+package GuardX.Events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -11,5 +11,4 @@ public class XPBottleBreak implements Listener {
         e.setShowEffect(false);
         e.setExperience(900000000);
     }
-
 }
