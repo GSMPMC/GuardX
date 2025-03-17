@@ -6,4 +6,4 @@ The GuardX Plugin is for Gaming SMP(GSMP) plugin, but as of now it is used for B
 
 | Plugin | Version | Status |
 | :-----: | :-----: | :-----: |
-| **GuardX** | 2.5 | **Ongoing Development & Learning**
+| **GuardX** | 3.0 | **Ongoing Development & Learning**
