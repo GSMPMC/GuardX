@@ -31,7 +31,7 @@ public final class GuardX extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new XPBottleBreak(), this);
         getServer().getPluginManager().registerEvents(new ShearSheep(), this);
         getServer().getPluginManager().registerEvents(new BreakBlock(), this);
-//Commands
+    //Commands
         //Gamemode
         Objects.requireNonNull(getCommand("gmc")).setExecutor(new gmc());
         Objects.requireNonNull(getCommand("gma")).setExecutor(new gma());
