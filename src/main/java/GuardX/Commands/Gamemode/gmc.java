@@ -12,10 +12,13 @@ public class gmc implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
         if (commandSender instanceof Player p){
-            p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + ChatColor.BOLD + "Creative");
+            if (p.hasPermission("guardx.admin.gmc")){
+                p.setGameMode(GameMode.CREATIVE);
+                p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + "Creative");
+            }else{
+                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.gmc " + ChatColor.RED + "Permission");
+            }
         }
-
         return true;
     }
 }

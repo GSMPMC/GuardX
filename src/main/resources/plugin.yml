@@ -1,5 +1,5 @@
 name: GuardX
-version: '2.5'
+version: '3.0'
 main: GuardX.GuardX
 api-version: '1.21'
 prefix: GuardX
@@ -10,21 +10,6 @@ website: gamingsmp.net
 depend:
   - LuckPerms
 commands:
-  die:
-    description: Easy way to kill yourself.
-    usage: /<command>
-  god:
-    description: Easy way to God yourself.
-    usage: /<command>
-    permission: guardx.admin.cmd.god
-  heal:
-    description: Easy way to heal yourself.
-    usage: /<command>
-    permission: guardx.admin.cmd.heal
-  feed:
-    description: Easy way to feed yourself.
-    usage: /<command>
-    permission: guardx.admin.cmd.feed
   gmc:
     description: Change your mode to Creative.
     usage: /<command>
@@ -41,10 +26,22 @@ commands:
     description: Change your mode to Spectator.
     usage: /<command>
     permission: guardx.admin.gmsp
-  happybday:
-    description: Happy Birthday Aryan!
+  die:
+    description: Easy way to kill yourself.
     usage: /<command>
-    permission: guardx.admin.cmd.day
+    permission: guardx.admin.cmd.die
+  god:
+    description: Easy way to God yourself.
+    usage: /<command>
+    permission: guardx.admin.cmd.god
+  heal:
+    description: Easy way to heal yourself.
+    usage: /<command>
+    permission: guardx.admin.cmd.heal
+  feed:
+    description: Easy way to feed yourself.
+    usage: /<command>
+    permission: guardx.admin.cmd.feed
   day:
     description: Change time to day.
     usage: /<command>
@@ -61,16 +58,32 @@ commands:
     description: Change time to midnight.
     usage: /<command>
     permission: guardx.admin.cmd.mnight
-
+  sinfo:
+    description: Shows server info.
+    usage: /<command>
+    permission: guardx.admin.cmd.sinfo
 permissions:
+  guardx.admin.*:
+    description: Allows users to access all GuardX Admin Commands.
+    default: op
+    children:
+      guardx.admin.cmd.*: true
+      guardx.admin.gm.*: true
+
   guardx.admin.cmd.*:
     description: Allows user to change the World Time.
     default: op
     children:
-     guardx.admin.cmd.day: true
-     guardx.admin.cmd.noon: true
-     guardx.admin.cmd.night: true
-     guardx.admin.cmd.midnight: true
+      guardx.admin.cmd.die: true
+      guardx.admin.cmd.god: true
+      guardx.admin.cmd.heal: true
+      guardx.admin.cmd.feed: true
+      guardx.admin.cmd.day: true
+      guardx.admin.cmd.noon: true
+      guardx.admin.cmd.night: true
+      guardx.admin.cmd.mnight: true
+      guardx.admin.cmd.sinfo: true
+
   guardx.admin.gm.*:
     description: Allows user to change their gamemode.
     default: op
@@ -79,3 +92,6 @@ permissions:
       guardx.admin.gms: true
       guardx.admin.gma: true
       guardx.admin.gmsp: true
+  guardx.admin.world.blockbreak:
+    description: Allows user to break world blocks
+    default: op

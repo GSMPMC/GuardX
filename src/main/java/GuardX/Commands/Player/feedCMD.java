@@ -12,11 +12,15 @@ public class feedCMD implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
         if (commandSender instanceof Player p){
-            if (p.getFoodLevel() == 20){
-                p.sendMessage(ChatColor.RED + "You're still full!");
+            if (p.hasPermission("guardx.admin.cmd.feed")){
+                if (p.getFoodLevel() == 20){
+                    p.sendMessage(ChatColor.RED + "You're still full!");
+                }else{
+                    p.setFoodLevel(20);
+                    p.sendMessage(ChatColor.GREEN + "You're now full! :D");
+                }
             }else{
-                p.setFoodLevel(20);
-                p.sendMessage(ChatColor.GREEN + "You're now full! :D");
+                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.cmd.feed " + ChatColor.RED + "Permission");
             }
         }
         return true;

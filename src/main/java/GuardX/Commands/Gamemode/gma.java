@@ -12,10 +12,13 @@ public class gma implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
         if (commandSender instanceof Player p){
-            p.setGameMode(GameMode.ADVENTURE);
-            p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + ChatColor.BOLD + "Adventure");
+            if (p.hasPermission("guardx.admin.gma")){
+                p.setGameMode(GameMode.ADVENTURE);
+                p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + "Adventure");
+            }else{
+                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.gma " + ChatColor.RED + "Permission");
+            }
         }
-
         return true;
     }
 }

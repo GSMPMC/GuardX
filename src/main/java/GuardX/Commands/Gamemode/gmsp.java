@@ -12,8 +12,12 @@ public class gmsp implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
         if (commandSender instanceof Player p){
-            p.setGameMode(GameMode.SPECTATOR);
-            p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + ChatColor.BOLD + "Spectator");
+            if (p.hasPermission("guardx.admin.gmsp")){
+                p.setGameMode(GameMode.SPECTATOR);
+                p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.GREEN + "Spectator");
+            }else{
+                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.gmsp " + ChatColor.RED + "Permission");
+            }
         }
         return true;
     }

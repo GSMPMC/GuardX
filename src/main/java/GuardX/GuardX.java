@@ -8,11 +8,13 @@ import GuardX.Commands.Player.dieCMD;
 import GuardX.Commands.Player.feedCMD;
 import GuardX.Commands.Player.godCMD;
 import GuardX.Commands.Player.healCMD;
+import GuardX.Commands.Server.serverinfoCMD;
 import GuardX.Commands.Server.World.dayCMD;
 import GuardX.Commands.Server.World.mnightCMD;
 import GuardX.Commands.Server.World.nightCMD;
 import GuardX.Commands.Server.World.noonCMD;
 import GuardX.Events.BreakBlock;
+import GuardX.Events.PlayerJoin;
 import GuardX.Events.ShearSheep;
 import GuardX.Events.XPBottleBreak;
 import org.bukkit.event.Listener;
@@ -31,6 +33,7 @@ public final class GuardX extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new XPBottleBreak(), this);
         getServer().getPluginManager().registerEvents(new ShearSheep(), this);
         getServer().getPluginManager().registerEvents(new BreakBlock(), this);
+        getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
     //Commands
         //Gamemode
         Objects.requireNonNull(getCommand("gmc")).setExecutor(new gmc());
@@ -43,8 +46,9 @@ public final class GuardX extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("feed")).setExecutor(new feedCMD());
         Objects.requireNonNull(getCommand("heal")).setExecutor(new healCMD());
         Objects.requireNonNull(getCommand("die")).setExecutor(new dieCMD());
-    //World
-        //Time
+    //Server
+        Objects.requireNonNull(getCommand("sinfo")).setExecutor(new serverinfoCMD());
+        // World
         Objects.requireNonNull(getCommand("day")).setExecutor(new dayCMD());
         Objects.requireNonNull(getCommand("noon")).setExecutor(new noonCMD());
         Objects.requireNonNull(getCommand("night")).setExecutor(new nightCMD());
