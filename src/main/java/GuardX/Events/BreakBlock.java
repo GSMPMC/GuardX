@@ -11,7 +11,7 @@ public class BreakBlock implements Listener {
     public void onBreakBlock(BlockBreakEvent e) {
         if (!e.getPlayer().hasPermission("guardx.world.breakblock")){
             e.setCancelled(true);
-            e.getPlayer().sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.world.blockbreak " + ChatColor.RED + "Permission");
+            e.getPlayer().sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.world.blockbreak " + ChatColor.RED + "Permission");
         }
     }
 }

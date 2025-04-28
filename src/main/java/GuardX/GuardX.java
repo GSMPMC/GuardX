@@ -13,10 +13,7 @@ import GuardX.Commands.Server.World.dayCMD;
 import GuardX.Commands.Server.World.mnightCMD;
 import GuardX.Commands.Server.World.nightCMD;
 import GuardX.Commands.Server.World.noonCMD;
-import GuardX.Events.BreakBlock;
-import GuardX.Events.PlayerJoin;
-import GuardX.Events.ShearSheep;
-import GuardX.Events.XPBottleBreak;
+import GuardX.Events.*;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,6 +31,9 @@ public final class GuardX extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ShearSheep(), this);
         getServer().getPluginManager().registerEvents(new BreakBlock(), this);
         getServer().getPluginManager().registerEvents(new PlayerJoin(), this);
+        getServer().getPluginManager().registerEvents(new Hell(), this);
+        getServer().getPluginManager().registerEvents(new spawn(), this);
+        getServer().getPluginManager().registerEvents(new InvOn(), this);
     //Commands
         //Gamemode
         Objects.requireNonNull(getCommand("gmc")).setExecutor(new gmc());

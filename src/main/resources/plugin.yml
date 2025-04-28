@@ -92,6 +92,6 @@ permissions:
       guardx.admin.gms: true
       guardx.admin.gma: true
       guardx.admin.gmsp: true
-  guardx.admin.world.blockbreak:
+  guardx.world.blockbreak:
     description: Allows user to break world blocks
     default: op
