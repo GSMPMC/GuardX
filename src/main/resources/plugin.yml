@@ -10,6 +10,11 @@ website: gamingsmp.net
 depend:
   - LuckPerms
 commands:
+  guardx:
+    description: Reloads GuardX
+    usage: /guardx reload
+    permission: guardx.admin.reload
+    tab-completer: guardx
   gmc:
     description: Change your mode to Creative.
     usage: /<command>
@@ -62,6 +67,10 @@ commands:
     description: Shows server info.
     usage: /<command>
     permission: guardx.admin.cmd.sinfo
+  allenchant:
+    description: Applies all enchantments to the players item
+    usage: /<command>
+    permission: guardx.admin.cmd.allenchant
 permissions:
   guardx.admin.*:
     description: Allows users to access all GuardX Admin Commands.
@@ -74,6 +83,7 @@ permissions:
     description: Allows user to change the World Time.
     default: op
     children:
+      guardx.admin.reload: true
       guardx.admin.cmd.die: true
       guardx.admin.cmd.god: true
       guardx.admin.cmd.heal: true
@@ -83,6 +93,7 @@ permissions:
       guardx.admin.cmd.night: true
       guardx.admin.cmd.mnight: true
       guardx.admin.cmd.sinfo: true
+      guardx.admin.cmd.allenchant: true
 
   guardx.admin.gm.*:
     description: Allows user to change their gamemode.

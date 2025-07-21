@@ -9,8 +9,8 @@ public class InvOn implements Listener {
 
     public void onPDeath(PlayerDeathEvent e){
         Player p = e.getPlayer();
-        e.setKeepLevel(true);
-        e.setKeepInventory(true);
-        e.setDeathMessage(ChatColor.YELLOW + p.getName() + "Access Denied to their Life Support!");
+        e.setDeathMessage(ChatColor.YELLOW + p.getName() + "Unplugged their Life Support!");
+        e.setDeathMessage(ChatColor.YELLOW + p.getName() + "Fall to their doom!");
+        e.setDeathMessage(ChatColor.YELLOW + p.getName() + "Decided their time has ended.");
+        }
     }
-}
