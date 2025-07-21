@@ -47,6 +47,7 @@ public final class GuardX extends JavaPlugin implements Listener {
         Objects.requireNonNull(getCommand("god")).setExecutor(new godCMD());
         Objects.requireNonNull(getCommand("feed")).setExecutor(new feedCMD());
         Objects.requireNonNull(getCommand("heal")).setExecutor(new healCMD());
+        Objects.requireNonNull(getCommand("die")).setExecutor(new dieCMD());
             //Misc
         Objects.requireNonNull(getCommand("allenchant")).setExecutor(new aenchantCMD());
     //Server
