@@ -1,5 +1,6 @@
 package GuardX.Commands.Gamemode;
 
+import GuardX.Util.MessageUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -16,7 +17,7 @@ public class gmsp implements CommandExecutor {
                 p.setGameMode(GameMode.SPECTATOR);
                 p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.GREEN + "Spectator");
             }else{
-                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.gmsp " + ChatColor.RED + "Permission");
+                p.sendMessage(MessageUtil.format("{prefix}&cAccess Denied &1- &cMissing &6guardx.admin.gmsp&c Permission"));
             }
         }
         return true;

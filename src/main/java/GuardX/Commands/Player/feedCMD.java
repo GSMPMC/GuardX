@@ -1,5 +1,6 @@
 package GuardX.Commands.Player;
 
+import GuardX.Util.MessageUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,7 +21,7 @@ public class feedCMD implements CommandExecutor {
                     p.sendMessage(ChatColor.GREEN + "You're now full! :D");
                 }
             }else{
-                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.cmd.feed " + ChatColor.RED + "Permission");
+                p.sendMessage(MessageUtil.format("{prefix}&cAccess Denied &1- &cMissing &6guardx.admin.cmd.feed&c Permission"));
             }
         }
         return true;

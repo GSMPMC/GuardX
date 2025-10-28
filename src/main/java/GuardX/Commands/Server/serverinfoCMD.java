@@ -19,7 +19,7 @@ public class serverinfoCMD implements CommandExecutor {
             boolean onlineMode = Bukkit.getServer().getOnlineMode();
             p.sendMessage(ChatColor.YELLOW + server.getName() + " Info");
             p.sendMessage(ChatColor.GREEN + "Server Version: " + ChatColor.GOLD + server.getVersion());
-            p.sendMessage(ChatColor.GREEN + "Server IP: " + ChatColor.GOLD + server.getIp());
+            p.sendMessage(ChatColor.GREEN + "Server IP: " + ChatColor.GOLD + Bukkit.getServer().getIp());
             if (onlineMode){
                 p.sendMessage(ChatColor.GREEN + "Server Online-Mode: " + ChatColor.GOLD + "Enabled");
             }else{

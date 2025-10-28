@@ -1,5 +1,6 @@
 package GuardX.Commands.Player;
 
+import GuardX.Util.MessageUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,7 +16,7 @@ public class dieCMD implements CommandExecutor {
                 p.setHealth(0);
                 p.sendMessage(ChatColor.RED + "You killed yourself!");
             }else{
-                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.cmd.die " + ChatColor.RED + "Permission");
+                p.sendMessage(MessageUtil.format("{prefix}&cAccess Denied &1- &cMissing &6guardx.admin.cmd.die&c Permission"));
             }
         }
         return true;

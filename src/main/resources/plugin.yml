@@ -11,76 +11,80 @@ depend:
   - LuckPerms
 commands:
   guardx:
-    description: Reloads GuardX
+    description: Main GuardX Command
     usage: /guardx reload
-    permission: guardx.admin.reload
+    permission: guardx.admin
     tab-completer: guardx
   gmc:
-    description: Change your mode to Creative.
+    description: Change your mode to Creative
     usage: /<command>
     permission: guardx.admin.gmc
   gms:
-    description: Change your mode to Survival.
+    description: Change your mode to Survival
     usage: /<command>
     permission: guardx.admin.gms
   gma:
-    description: Change your mode to Adventure.
+    description: Change your mode to Adventure
     usage: /<command>
     permission: guardx.admin.gma
   gmsp:
-    description: Change your mode to Spectator.
+    description: Change your mode to Spectator
     usage: /<command>
     permission: guardx.admin.gmsp
   die:
-    description: Easy way to kill yourself.
+    description: Easy way to kill your player
     usage: /<command>
     permission: guardx.admin.cmd.die
   god:
-    description: Easy way to God yourself.
+    description: Easy way to God your player
     usage: /<command>
     permission: guardx.admin.cmd.god
   heal:
-    description: Easy way to heal yourself.
+    description: Easy way to heal your player
     usage: /<command>
     permission: guardx.admin.cmd.heal
   feed:
-    description: Easy way to feed yourself.
+    description: Easy way to feed your player
     usage: /<command>
     permission: guardx.admin.cmd.feed
   day:
-    description: Change time to day.
+    description: Change time to day
     usage: /<command>
     permission: guardx.admin.cmd.day
   noon:
-    description: Change time to noon.
+    description: Change time to noon
     usage: /<command>
     permission: guardx.admin.cmd.noon
   night:
-    description: Change time to night.
+    description: Change time to night
     usage: /<command>
     permission: guardx.admin.cmd.night
   mnight:
-    description: Change time to midnight.
+    description: Change time to midnight
     usage: /<command>
     permission: guardx.admin.cmd.mnight
   sinfo:
-    description: Shows server info.
+    description: Shows server info
     usage: /<command>
     permission: guardx.admin.cmd.sinfo
   allenchant:
     description: Applies all enchantments to the players item
     usage: /<command>
     permission: guardx.admin.cmd.allenchant
+  gxhelp:
+    description: Shows GuardX Help Menu
+    usage: /help <number>
+
 permissions:
   guardx.admin.*:
-    description: Allows users to access all GuardX Admin Commands.
+    description: Allows users to access all GuardX Admin Commands
     default: op
     children:
       guardx.admin.cmd.*: true
       guardx.admin.gm.*: true
-
+      guardx.admin.notify: true
   guardx.admin.cmd.*:
-    description: Allows user to change the World Time.
+    description: Allows user to change the World Time
     default: op
     children:
       guardx.admin.reload: true
@@ -94,15 +98,17 @@ permissions:
       guardx.admin.cmd.mnight: true
       guardx.admin.cmd.sinfo: true
       guardx.admin.cmd.allenchant: true
-
   guardx.admin.gm.*:
-    description: Allows user to change their gamemode.
+    description: Allows user to change their gamemode
     default: op
     children:
       guardx.admin.gmc: true
       guardx.admin.gms: true
       guardx.admin.gma: true
       guardx.admin.gmsp: true
-  guardx.world.blockbreak:
+  guardx.world.break:
     description: Allows user to break world blocks
+    default: op
+  guardx.world.interact:
+    description: Allows user to interact with blocks
     default: op

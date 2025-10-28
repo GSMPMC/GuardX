@@ -1,5 +1,6 @@
 package GuardX.Commands.Gamemode;
 
+import GuardX.Util.MessageUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -16,7 +17,7 @@ public class gma implements CommandExecutor {
                 p.setGameMode(GameMode.ADVENTURE);
                 p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + "Adventure");
             }else{
-                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.gma " + ChatColor.RED + "Permission");
+                p.sendMessage(MessageUtil.format("{prefix}&cAccess Denied &1- &cMissing &6guardx.admin.gma&c Permission"));
             }
         }
         return true;
