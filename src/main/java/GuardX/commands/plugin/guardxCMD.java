@@ -1,17 +1,18 @@
-package GuardX.Commands.Plugin;
+package GuardX.commands.plugin;
 
-import GuardX.Commands.Gamemode.gma;
-import GuardX.Commands.Gamemode.gmc;
-import GuardX.Commands.Gamemode.gms;
-import GuardX.Commands.Gamemode.gmsp;
-import GuardX.Commands.Player.*;
-import GuardX.Commands.Server.serverinfoCMD;
-import GuardX.Util.MessageUtil;
-import GuardX.Commands.Server.World.*;
+import GuardX.commands.gamemode.gma;
+import GuardX.commands.gamemode.gmc;
+import GuardX.commands.gamemode.gms;
+import GuardX.commands.gamemode.gmsp;
+import GuardX.commands.player.*;
+import GuardX.commands.server.serverinfoCMD;
+import GuardX.util.MessageUtil;
+import GuardX.commands.server.world.*;
 import org.bukkit.Bukkit;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -41,7 +42,7 @@ public class guardxCMD implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String @NotNull [] args) {
         if (!(sender instanceof Player player)) {
             sender.sendMessage("§cOnly players can use GuardX commands.");
             return true;
@@ -88,7 +89,7 @@ public class guardxCMD implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, String[] args) {
         List<String> completions = new ArrayList<>();
 
         if (args.length == 1) {

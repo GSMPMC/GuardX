@@ -1,6 +1,6 @@
-package GuardX.Commands.Gamemode;
+package GuardX.commands.gamemode;
 
-import GuardX.Util.MessageUtil;
+import GuardX.util.MessageUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -9,15 +9,15 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class gma implements CommandExecutor {
+public class gmsp implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
         if (commandSender instanceof Player p){
-            if (p.hasPermission("guardx.admin.gma")){
-                p.setGameMode(GameMode.ADVENTURE);
-                p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + "Adventure");
+            if (p.hasPermission("guardx.admin.gmsp")){
+                p.setGameMode(GameMode.SPECTATOR);
+                p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.GREEN + "Spectator");
             }else{
-                p.sendMessage(MessageUtil.format("{prefix}&cAccess Denied &1- &cMissing &6guardx.admin.gma&c Permission"));
+                p.sendMessage(MessageUtil.format("{prefix}&cAccess Denied &1- &cMissing &6guardx.admin.gmsp&c Permission"));
             }
         }
         return true;

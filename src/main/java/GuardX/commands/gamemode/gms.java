@@ -1,22 +1,23 @@
-package GuardX.Commands.Server.World;
+package GuardX.commands.gamemode;
 
+import GuardX.util.MessageUtil;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class noonCMD implements CommandExecutor {
+public class gms implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] strings) {
         if (commandSender instanceof Player p) {
-
-            if (p.hasPermission("guardx.admin.cmd.noon")){
-                p.getWorld().setTime(6000L);
-                p.sendMessage(ChatColor.GREEN + "Time set to " + ChatColor.GOLD + "Noon");
+            if (p.hasPermission("guardx.admin.gms")) {
+                p.setGameMode(GameMode.SURVIVAL);
+                p.sendMessage(ChatColor.YELLOW + "Gamemode changed to " + ChatColor.BLUE + "Survival");
             }else{
-                p.sendMessage(ChatColor.RED + "Access Denied " + ChatColor.BLUE + "-" + ChatColor.RED + " Missing " + ChatColor.GOLD + "guardx.admin.cmd.noon " + ChatColor.RED + "Permission");
+                p.sendMessage(MessageUtil.format("{prefix}&cAccess Denied &1- &cMissing &6guardx.admin.gms&c Permission"));
             }
         }
         return true;

@@ -1,4 +1,4 @@
-package GuardX.Commands.Server.World;
+package GuardX.commands.server.world;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

@@ -1,8 +1,7 @@
-package GuardX.Events;
+package GuardX.events;
 
-import GuardX.Util.MessageUtil;
+import GuardX.util.MessageUtil;
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

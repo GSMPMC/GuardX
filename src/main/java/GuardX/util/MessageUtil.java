@@ -1,4 +1,4 @@
-package GuardX.Util;
+package GuardX.util;
 
 import org.bukkit.ChatColor;
 

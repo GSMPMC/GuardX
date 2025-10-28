@@ -1,6 +1,6 @@
-package GuardX.Commands.Player;
+package GuardX.commands.player;
 
-import GuardX.Util.MessageUtil;
+import GuardX.util.MessageUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
