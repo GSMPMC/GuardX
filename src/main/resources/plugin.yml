@@ -1,5 +1,5 @@
 name: GuardX
-version: '3.0'
+version: 'ALPHA-4.0'
 main: GuardX.GuardX
 api-version: '1.21'
 prefix: GuardX
