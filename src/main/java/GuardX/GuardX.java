@@ -26,8 +26,10 @@ public final class GuardX extends JavaPlugin implements Listener {
     public void onEnable() {
     //Logger
         getLogger().info("GuardX Online");
-        getLogger().warning("This plugin is not recommended to be used in a functioning server/public server as it may cause unexpected issues.");
-    //MainCMD Register
+        getLogger().warning("====================[ GuardX Notice System ]====================");
+        getLogger().warning("This plugin is not recommended to be used in a production server as it may caused issues.");
+        getLogger().warning("====================[ GuardX Notice System ]====================");
+        //MainCMD Register
         guardxCMD reloadCMD = new guardxCMD(this);
         Objects.requireNonNull(getCommand("guardx")).setExecutor(new guardxCMD(this));
         Objects.requireNonNull(getCommand("guardx")).setTabCompleter(reloadCMD);
